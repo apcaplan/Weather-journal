@@ -5,6 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, intital-scale-1" />
 
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 
   <title>Weather Journal</title>
@@ -12,25 +13,40 @@
 
 <body>
     <header>
-      <h1>Weather Journal App</h1>
+      <h1>Weather Journal</h1>
     </header>
 
     <main>
-      <form>
+      <form id="form">
         <div class="zip">
-          <label for="zip">Enter your location:</label>
-          <input id="zip" maxlength="5" minlength="5" size="7" type="number" placeholder="Enter your zipcode here">
+          <label for="zip">Your location:</label>
+          <input
+            id="zip"
+            maxlength="5"
+            minlength="5"
+            placeholder="Enter your zipcode here"
+            size="10"
+            type="number"
+          >
         </div>
         <div class="feel">
           <label for="feelings">How are you feeling today?</label>
-          <textarea id="feelings" rows="4" cols="50">
+          <textarea id="feelings" rows="4" cols="50"></textarea>
         </div>
-        <button id="generate" type="submit">Submit</button>
+        <div class="button">
+          <button id="generate" type="submit">Submit</button>
+       </div>
       </form>
-      <div id="entryHolder">
-        <div id="date"></div>
-        <div id="temp"></div>
-        <div id="content"></div>
+      <div id="entryHolder" class="hide">
+        <div class="response">
+          <div id="date"></div>
+          <div id="city"></div>
+          <div id="temp"></div>
+          <div id="weather"></div>
+          <div id="content"></div>
+        </div>
+          <div id="conclusion">Do you think the weather is affecting your mood?<div>
+
       </div>
     </main>
 

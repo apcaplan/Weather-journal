@@ -1,0 +1,166 @@
+:root {
+  --heading: 'Raleway', sans-serif;
+  --text: 'Roboto', sans-serif;
+
+  --black: #000;
+  --light: #d7dde0;
+  --white: #fff;
+}
+
+body {
+  background: url("clouds.jpg") no-repeat center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--text);
+}
+
+footer {
+  bottom: 0;
+  display: flex;
+  height: 50px;
+  font-size: 0.8em;
+  justify-content: center;
+}
+
+h1 {
+  color: var(--white);
+  font-family: var(--heading);
+  text-shadow: 2px 2px 1px var(--black);
+}
+
+header {
+  display: flex;
+  height: 80px;
+  justify-content: center;
+}
+
+label {
+  color: var(--light);
+  margin-left: 1em;
+  text-shadow: 0.5px 0.5px 0.5px var(--black);
+}
+
+main {
+  height: calc(100vh - 150px);
+}
+
+#conclusion {
+  margin: 0;
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+}
+
+#entryHolder {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+#feelings {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 0.6em;
+  width: 80%;
+}
+
+#form {
+  margin-top: 2em;
+}
+
+#generate {
+  align-items: center;
+  background-color: var(--light);
+  border-color: var(--light);
+  display: flex;
+  justify-content: center;
+  padding: 0.6em 1em;
+  width: 18%;
+}
+
+#zip {
+  margin-left: 1em;
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 2.5em;
+  margin-top: 0.8em;
+}
+
+.feel {
+  margin-top: 1em;
+}
+
+.hide {
+  display: none;
+}
+
+.response {
+  margin-left: 1.8em;
+  margin-top: 3em;
+}
+
+.show {
+  display: block;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.zip input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+.zip input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+@media (min-width: 600px) and (max-width: 900px) {
+  #entryHolder {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.3em;
+    margin: 0 auto;
+    margin-top: 2em;
+  }
+
+  #form {
+    font-size: 1.3em;
+  }
+
+  .button {
+    margin-right: 4em;
+  }
+
+  .response {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 901px) {
+  #entryHolder {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4em;
+    margin: 0 auto;
+    margin-top: 2em;
+  }
+
+  #form {
+    font-size: 1.4em;
+  }
+
+  .button {
+    margin-right: 10em;
+  }
+
+  .zip input {
+    height: 1em;
+    padding: 4px;
+  }
+}

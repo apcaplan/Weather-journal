@@ -44,12 +44,12 @@ function getAll (req, res) {
 app.post('/add', addData)
 
 function addData (req, res) {
-  projectData.date = req.body.date
-  projectData.feelings = req.body.feelings
-  projectData.zip = req.body.zip
-  console.log('POST request received')
-  getWeather()
-  res.send(projectData)
+    projectData.date = req.body.date
+    projectData.feelings = req.body.feelings
+    projectData.zip = req.body.zip
+    console.log('POST request received')
+    getWeather()
+    setTimeout(() => {res.send(projectData)}, 1000)
 }
 
 // GET weather from OpenWeatherMap API
@@ -77,14 +77,16 @@ function getWeather (req, res) {
     .then(res => res.json())
     .then(data => {
       projectData.city = data.name
-      data.weather.length > 1 ?
-        projectData.description = data.weather[0].description :
-        projectData.description = data.weather.description
+      projectData.description = data.weather[0].description
+      // data.weather.length > 1 ?
+      //   projectData.description = data.weather[0].description :
+      //   projectData.description = data.weather.description
       projectData.temperature = data.main.temp
       // res.send({ data })
       // res.send(projectData)
     })
-    .then(()=> console.log(projectData))
+    .then(console.log(projectData))
+    .then(() => projectData)
     .catch(error => {
       console.log(error)
     })
