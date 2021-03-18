@@ -43,16 +43,15 @@ function getAll(req, res) {
 // POST
 app.post("/add", addData);
 
-function addData(req, res) {
+async function addData(req, res) {
   projectData.date = req.body.date;
   projectData.feelings = req.body.feelings;
   projectData.zip = req.body.zip;
   console.log("POST request received");
-  getWeather();
-  setTimeout(() => {
-    res.send(projectData);
-  }, 1000);
-}
+  let weatherdata = await getWeather()
+  let sendWeatherData = await res.send(projectData)
+  console.log("projectData:", projectData)
+  }
 
 // GET weather from OpenWeatherMap API
 
@@ -73,20 +72,16 @@ const requestUrl = function (zip) {
 // Fetch weather data from OpenWeatherMap API
 app.post("/weather", getWeather);
 
-function getWeather(req, res) {
+async function getWeather(req, res) {
   console.log("finding weather...");
-  fetch(requestUrl(projectData.zip))
-    .then((res) => res.json())
-    .then((data) => {
-      projectData.city = data.name;
-      projectData.description = data.weather[0].description;
-      projectData.temperature = data.main.temp;
-      // res.send({ data })
-      // res.send(projectData)
-    })
-    // .then(console.log(projectData))
-    // .then(() => projectData)
-    .catch((error) => {
-      console.log(error);
-    });
+  const weather = await fetch(requestUrl(projectData.zip))
+  const w = await weather.json()
+  try {
+      // console.log(w);
+      projectData.city = w.name;
+      projectData.description = w.weather[0].description;
+      projectData.temperature = w.main.temp;
+  } catch (error) {
+      console.log("error: ", error);
+    }
 }
