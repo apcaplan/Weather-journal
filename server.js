@@ -48,10 +48,10 @@ async function addData(req, res) {
   projectData.feelings = req.body.feelings;
   projectData.zip = req.body.zip;
   console.log("POST request received");
-  let weatherdata = await getWeather()
-  let sendWeatherData = await res.send(projectData)
-  console.log("projectData:", projectData)
-  }
+  let weatherdata = await getWeather();
+  let sendWeatherData = await res.send(projectData);
+  console.log("projectData:", projectData);
+}
 
 // GET weather from OpenWeatherMap API
 
@@ -74,14 +74,14 @@ app.post("/weather", getWeather);
 
 async function getWeather(req, res) {
   console.log("finding weather...");
-  const weather = await fetch(requestUrl(projectData.zip))
-  const w = await weather.json()
+  const weather = await fetch(requestUrl(projectData.zip));
+  const w = await weather.json();
   try {
-      // console.log(w);
-      projectData.city = w.name;
-      projectData.description = w.weather[0].description;
-      projectData.temperature = w.main.temp;
+    // console.log(w);
+    projectData.city = w.name;
+    projectData.description = w.weather[0].description;
+    projectData.temperature = w.main.temp;
   } catch (error) {
-      console.log("error: ", error);
-    }
+    console.log("error: ", error);
+  }
 }
