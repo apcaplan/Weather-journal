@@ -10,12 +10,9 @@ Simply tune in to how you're feeling. Describe in a few words. Enter your USA zi
 - Express.js
 
 ## Setup and Installation - Instructions for Developers:
-To use this app locally, clone this repo. Then install the following dependencies (all preceded by `npm install` terminal command):
-  - Express
-  - body-parser
-  - cors
-  - dotenv
-  - node-fetch
+To use this app locally, clone this repo. Then install dependencies with `npm install` terminal command.
+
+To start the server and open the page in your local browser, use the terminal command `npm run start`.
 
 **NB in order to run this app, you will need an OpenWeatherMap API key. You can get one easily by signing up at openweathermap.org - it's completely free.
 
